@@ -6,45 +6,47 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
 
+// --- DATA CỦA KỸ SƯ ---
 const exclusiveOffers = [
-    { id: '1', name: 'Organic Bananas', sub: '7pcs, Priceg', price: '$4.99', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '2', name: 'Red Apple', sub: '1kg, Priceg', price: '$4.99', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '3', name: 'Fresh Peach', sub: '500g, Price', price: '$3.99', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
+    { id: '1', name: 'Organic Bananas', sub: '7pcs, Priceg', price: '$4.99', img: require('../assets/Banana.png') },
+    { id: '2', name: 'Red Apple', sub: '1kg, Priceg', price: '$4.99', img: require('../assets/Apple.png') },
 ];
 
 const bestSelling = [
-    { id: '1', name: 'Bell Pepper Red', sub: '1kg, Price', price: '$4.99', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '2', name: 'Ginger', sub: '250gm, Price', price: '$4.99', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
+    { id: '1', name: 'Bell Pepper Red', sub: '1kg, Price', price: '$4.99', img: require('../assets/Pepper.png') },
+    { id: '2', name: 'Ginger', sub: '250gm, Price', price: '$4.99', img: require('../assets/Ginger.png') },
 ];
 
 const groceries = [
-    { id: '1', name: 'Pulses', color: '#F8A44C26', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '2', name: 'Rice', color: '#53B17526', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
+    { id: '1', name: 'Pulses', color: '#F8A44C26', img: require('../assets/Pulses.png') },
+    { id: '2', name: 'Rice', color: '#53B17526', img: require('../assets/Rice.png') },
 ];
 
 export default function HomeScreen({navigation}) {
-const renderProductItem = ({ item }) => (
-    <TouchableOpacity 
-        style={styles.productCard}
-        onPress={() => navigation.navigate('ProductDetail', { item: item })}
-    >
-        <Image source={{ uri: item.img }} style={styles.productImage} />
-        <Text style={styles.productTitle} numberOfLines={1}>{item.name}</Text>
-        <Text style={styles.productSub}>{item.sub}</Text>
-        
-        <View style={styles.priceRow}>
-            <Text style={styles.productPrice}>{item.price}</Text>
+    
+    const renderProductItem = ({ item }) => (
+        <TouchableOpacity 
+            style={styles.productCard}
+            onPress={() => navigation.navigate('ProductDetail', { item: item })}
+        >
+            {/* ĐẠI CA ĐÃ FIX: Chỉ còn item.img, không có uri */}
+            <Image source={item.img} style={styles.productImage} />
+            <Text style={styles.productTitle} numberOfLines={1}>{item.name}</Text>
+            <Text style={styles.productSub}>{item.sub}</Text>
             
-            <TouchableOpacity style={styles.addButton}>
-                <Feather name="plus" size={20} color="#FFF" />
-            </TouchableOpacity>
-        </View>
-    </TouchableOpacity>
-);
+            <View style={styles.priceRow}>
+                <Text style={styles.productPrice}>{item.price}</Text>
+                <TouchableOpacity style={styles.addButton}>
+                    <Feather name="plus" size={20} color="#FFF" />
+                </TouchableOpacity>
+            </View>
+        </TouchableOpacity>
+    );
 
     const renderGroceryItem = ({ item }) => (
         <TouchableOpacity style={[styles.groceryCard, { backgroundColor: item.color }]}>
-            <Image source={{ uri: item.img }} style={styles.groceryImage} />
+            {/* ĐẠI CA ĐÃ FIX: Trả lại đúng style là groceryImage cho khỏi xấu */}
+            <Image source={item.img} style={styles.groceryImage} />
             <Text style={styles.groceryTitle}>{item.name}</Text>
         </TouchableOpacity>
     );
@@ -79,12 +81,9 @@ const renderProductItem = ({ item }) => (
                     />
                 </View>
 
-                <Image 
-                    source={{ uri: 'https://i.ibb.co/Zdz09q6/banner-placeholder.png' }} // Đổi link này thành ảnh banner thật sau nhé
-                    style={styles.bannerImage}
-                />
+                {/* ĐẠI CA ĐÃ FIX: Trả lại đúng ảnh Banner, không gọi "item" ở đây nữa */}
+                <Image source={require('../assets/banner.png')} style={styles.bannerImage} />
 
-                
                 <SectionHeader title="Exclusive Offer" />
                 <FlatList
                     data={exclusiveOffers}
@@ -119,6 +118,8 @@ const renderProductItem = ({ item }) => (
         </SafeAreaView>
     );
 }
+
+// ... Dưới này là phần const styles = StyleSheet.create({ ... }) của em, cứ giữ nguyên nhé!
 
 const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: '#FFF' },

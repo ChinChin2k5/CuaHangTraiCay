@@ -5,12 +5,12 @@ import { Feather } from '@expo/vector-icons';
 
 
 const categories = [
-    { id: '1', name: 'Fresh Fruits\n& Vegetable', color: '#EEF8F2', borderColor: '#53B175', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '2', name: 'Cooking Oil\n& Ghee', color: '#FFF6EE', borderColor: '#F8A44C', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '3', name: 'Meat & Fish', color: '#FDECEC', borderColor: '#F7A593', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '4', name: 'Bakery & Snacks', color: '#F4EBF7', borderColor: '#D3B0E0', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '5', name: 'Dairy & Eggs', color: '#FFF8E5', borderColor: '#FDE598', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '6', name: 'Beverages', color: '#EDF7FC', borderColor: '#B7DFF5', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
+    { id: '1', name: 'Fresh Fruits\n& Vegetable', color: '#EEF8F2', borderColor: '#53B175', img: require('../assets/FreshFruit.png') },
+    { id: '2', name: 'Cooking Oil\n& Ghee', color: '#FFF6EE', borderColor: '#F8A44C', img: require('../assets/CookingOil.png') },
+    { id: '3', name: 'Meat & Fish', color: '#FDECEC', borderColor: '#F7A593', img: require('../assets/Meat&Fish.png') },
+    { id: '4', name: 'Bakery & Snacks', color: '#F4EBF7', borderColor: '#D3B0E0', img: require('../assets/Bakery.png') },
+    { id: '5', name: 'Dairy & Eggs', color: '#FFF8E5', borderColor: '#FDE598', img: require('../assets/Eggs.png') },
+    { id: '6', name: 'Beverages', color: '#EDF7FC', borderColor: '#B7DFF5', img: require('../assets/Be.png') },
 ];
 
 export default function Explore({navigation}) {
@@ -23,7 +23,7 @@ const renderCategoryItem = ({ item }) => (
             }
         }}
     >
-        <Image source={{ uri: item.img }} style={styles.cardImage} />
+        <Image source={item.img} style={styles.cardImage} />
         <Text style={styles.cardTitle}>{item.name}</Text>
     </TouchableOpacity>
 );

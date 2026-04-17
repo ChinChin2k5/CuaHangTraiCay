@@ -4,19 +4,19 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 
 const products = [
-    { id: '1', name: 'Diet Coke', sub: '355ml, Price', price: '$1.99', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '2', name: 'Sprite Can', sub: '325ml, Price', price: '$1.50', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '3', name: 'Apple & Grape\nJuice', sub: '2L, Price', price: '$15.99', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '4', name: 'Orange Juice', sub: '2L, Price', price: '$15.99', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '5', name: 'Coca Cola Can', sub: '325ml, Price', price: '$4.99', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
-    { id: '6', name: 'Pepsi Can', sub: '330ml, Price', price: '$4.99', img: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' },
+    { id: '1', name: 'Diet Coke', sub: '355ml, Price', price: '$1.99', img: require('../assets/Diet.png') },
+    { id: '2', name: 'Sprite Can', sub: '325ml, Price', price: '$1.50', img: require('../assets/Sprite.png') },
+    { id: '3', name: 'Apple & Grape\nJuice', sub: '2L, Price', price: '$15.99', img: require('../assets/Grape.png') },
+    { id: '4', name: 'Orange Juice', sub: '2L, Price', price: '$15.99', img: require('../assets/Orange.png') },
+    { id: '5', name: 'Coca Cola Can', sub: '325ml, Price', price: '$4.99', img: require('../assets/Coca.png') },
+    { id: '6', name: 'Pepsi Can', sub: '330ml, Price', price: '$4.99', img:require('../assets/Pepsi.png') },
 ];
 
 export default function Beverages({navigation}) {
     
     const renderProductItem = ({ item }) => (
         <View style={styles.productCard}>
-            <Image source={{ uri: item.img }} style={styles.productImage} />
+            <Image source={  item.img } style={styles.productImage} />
             
             <View style={styles.productInfo}>
                 <Text style={styles.productTitle} numberOfLines={2}>{item.name}</Text>

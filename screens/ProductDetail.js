@@ -24,8 +24,8 @@ export default function ProductDetail() {
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
                 <View style={styles.imageBox}>
                     <Image 
-                        source={{ uri: 'https://i.ibb.co/L86v3fX/red-apple-isolated-on-white-background-free-photo-removebg-preview.png' }} 
-                        style={styles.productImage} 
+                    source={require('../assets/Apple.png')} 
+                    style={styles.productImage}
                     />
                     <View style={styles.pagination}>
                         <View style={[styles.dot, styles.activeDot]} />
